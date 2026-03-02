@@ -40,8 +40,8 @@ Together they equal **$1**.
 
 At resolution:
 
-- YES pays **$1** if the event happens, otherwise **$0**  
-- NO pays **$1** if the event does not happen, otherwise **$0**
+- YES pays $1  if the event happens, otherwise $0
+- NO pays $1  if the event does not happen, otherwise $0
 
 YES and NO are separate tokens.
 
