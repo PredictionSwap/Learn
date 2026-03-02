@@ -1,9 +1,10 @@
-site_name: "Prediction<span class='brand-swap'>Swap</span> <span class='brand-foundation'>Foundational Docs</span>"
+site_name: "PredictionSwap Foundational Docs"
 site_description: Protocol infrastructure for prediction markets.
 site_url: https://your-site.netlify.app
 
 theme:
   name: material
+  custom_dir: docs/overrides
   language: en
 
   logo: assets/logo.png
