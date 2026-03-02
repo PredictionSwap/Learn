@@ -1,6 +1,0 @@
-#!/Users/richardrobertson/Projects/PredictionPerpsV2/docs/V3/predictionswap-articles/.venv/bin/python3.9
-import sys
-from ghp_import import main
-if __name__ == '__main__':
-    sys.argv[0] = sys.argv[0].removesuffix('.exe')
-    sys.exit(main())
