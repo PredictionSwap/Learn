@@ -1,0 +1,305 @@
+# Better Execution
+
+## Introduction
+
+There are multiple examples of trades which fail under the traditional token representation framework because either the maker or the taker havent transformed their token representations to fufill the trade, or the transaction requires a flashloan in order to execute.
+
+Under the PredictionSwap protocol as long as both participants have a solvent final economic state the trade will execute. 
+
+Below are two simple examples that show how trades work under the exposure representation system.
+
+---
+
+## A Simple Structural Example
+
+Consider a mutually exclusive outcome market:
+
+\[
+\Omega = \{R, G, B\}
+\]
+
+---
+
+## Example 1
+
+### Traditional Systems
+
+Alice holds:
+
+- \$10 only
+
+Bob holds:
+
+- \(5\,\text{YES–R}\) tokens  
+
+Alice wants to buy \(2\,\text{YES–R}\) at price \(0.6\).
+
+- Alice sends \$1.2  
+- Bob sends \(2\,\text{YES–R}\)
+
+---
+
+#### After Trade
+
+Alice:
+
+- \$8.8  
+- \(2\,\text{YES–R}\)
+
+Bob:
+
+- \$1.2  
+- \(3\,\text{YES–R}\)
+
+Execution succeeds, both participants have the correct tokens for the trade.
+
+---
+
+### Exposure Accounting
+
+#### Step 1 — Translate Holdings to Exposure Vectors
+
+Initial:
+
+We translate all holdings Alice and Bob have into exposure vectors.
+
+\[
+e = (e_R, e_G, e_B)
+\]
+
+\(e_k\) tells us how much money the user has if outcome \(k\) happens.
+
+Alice has \$10:
+
+\[
+e_A = (10,10,10)
+\]
+
+Bob has \(5\,\text{YES–R}\) tokens:
+
+\[
+e_B = (5,0,0)
+\]
+
+---
+
+#### Step 2 — Translate the Trade into Exposure \(\Delta\)
+
+Alice wants to buy \(2\,\text{YES–R}\) at price \(0.6\).
+
+Translation:
+
+\[
+2\,\text{YES–R} \rightarrow (+2,0,0)
+\]
+
+\[
+\text{Pay }0.6 \rightarrow (-0.6,-0.6,-0.6)
+\]
+
+Combined exposure change:
+
+\[
+\Delta e = (+1.4,-0.6,-0.6)
+\]
+
+Bob agrees to take the opposite exposure:
+
+\[
+-\Delta e
+\]
+
+---
+
+#### Step 3 — Apply Equal and Opposite Updates
+
+Alice:
+
+\[
+e_A \rightarrow e_A + \Delta e
+\]
+
+\[
+(10,10,10) + (+1.4,-0.6,-0.6)
+= (11.4,9.4,9.4)
+\]
+
+Bob:
+
+\[
+e_B \rightarrow e_B - \Delta e
+\]
+
+\[
+(5,0,0) - (+1.4,-0.6,-0.6)
+= (3.6,0.6,0.6)
+\]
+
+The trade executes because both accounts still have positive exposures in every possible world.
+
+No token inventory is required.
+
+---
+
+## Example 2 — Trade That Fails Under Traditional Token Holdings
+
+### Traditional Model
+
+Now suppose:
+
+Alice holds:
+- \$10  
+
+Bob holds:
+- \(5\,\text{NO–G}\) tokens  
+
+Alice wants to buy \(2\,\text{YES–R}\) from Bob for \$0.6.
+
+Bob has no \(\text{YES–R}\) to sell.
+
+Therefore the trade fails.
+
+---
+
+### Exposure-Based Model
+
+Alice holds:
+- \$10  
+
+\[
+e_A = (10,10,10)
+\]
+
+Bob holds:
+- \(5\,\text{NO–G}\) tokens  
+
+\[
+e_B = (5,0,5)
+\]
+
+(Bob has \$5 if either \(R\) or \(B\) happens.)
+
+---
+
+#### Step 1 — Translate the Trade into Exposure \(\Delta\)
+
+As before Alice wants to buy \(2\,\text{YES–R}\) for \$0.6.
+
+Recap:
+
+\[
+2\,\text{YES–R} \rightarrow (+2,0,0)
+\]
+
+\[
+\text{Pay }0.6 \rightarrow (-0.6,-0.6,-0.6)
+\]
+
+Combined exposure change:
+
+\[
+\Delta e = (+1.4,-0.6,-0.6)
+\]
+
+Bob agrees to take the opposite exposure:
+
+\[
+-\Delta e
+\]
+
+---
+
+#### Step 2 — Apply Equal and Opposite Updates
+
+Alice:
+
+\[
+e_A \rightarrow e_A + \Delta e
+\]
+
+\[
+(10,10,10) + (+1.4,-0.6,-0.6)
+= (11.4,9.4,9.4)
+\]
+
+Bob:
+
+\[
+e_B \rightarrow e_B - \Delta e
+\]
+
+\[
+(5,0,5) - (+1.4,-0.6,-0.6)
+= (3.6,0.6,5.6)
+\]
+
+The trade executes because both accounts still have positive exposures in every possible world.
+
+No token inventory is required.
+
+---
+
+## Structural Difference
+
+### Traditional model
+
+- Requires specific asset inventory  
+- Trades may fail due to token representation  
+
+### Exposure model
+
+- Updates payoff vectors directly  
+- Trades depend only on economic capacity  
+- Representation does not constrain execution  
+
+---
+
+## Significance
+
+### Liquidity without inventory
+
+Because trades are expressed directly as exposure deltas, execution updates payoff vectors symmetrically:
+
+\[
+e_A \rightarrow e_A + \Delta e
+\]
+
+\[
+e_B \rightarrow e_B - \Delta e
+\]
+
+Trading is a redistribution of exposure between participants.
+
+The trade executes if and only if the resulting exposure vectors remain solvent:
+
+\[
+e_{A,k} > 0
+\quad\text{and}\quad
+e_{B,k} > 0
+\quad
+\forall k \in \Omega
+\]
+
+Liquidity therefore becomes a rule over admissible exposure changes, rather than a pool of pre-allocated tokens.
+
+---
+
+### Intents simplify
+
+An intent specifies:
+
+- A desired exposure change \(\Delta e\)  
+
+Matching simply requires pairing with
+
+- A corresponding exposure change \( - \Delta e\)
+
+---
+
+### New Automatic Market Makers
+
+A new powerful class of Zero Sum Automatic Market Makers becomes possible as liquidity providers no longer manage pools of YES and NO tokens.
+
+ZAMMs simply decide whether to accept a proposed exposure change \(\Delta e\).
+
+---

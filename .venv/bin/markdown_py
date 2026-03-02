@@ -1,0 +1,6 @@
+#!/Users/richardrobertson/Projects/PredictionPerpsV2/docs/V3/predictionswap-articles/.venv/bin/python3.9
+import sys
+from markdown.__main__ import run
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(run())

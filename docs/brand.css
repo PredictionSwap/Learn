@@ -1,0 +1,542 @@
+/* =====================================================
+   PredictionSwap Brand Theme
+   Font: Montserrat
+   Palette:
+   Ink:        #071d4b
+   Navy:       #1B3E86
+   Blue:       #3673F5
+   LightBlue:  #8EB1F9
+   SoftBlue:   #E7EEFE
+   DarkGreen:  #0D7534
+   Green:      #17D45C
+   LightGreen: #7FE8A6
+   SoftGreen:  #E8FCF0
+===================================================== */
+
+/* ---------------- Core Theme Variables ---------------- */
+
+:root {
+  --md-primary-fg-color: #071d4b;
+  --md-primary-fg-color--light: #1B3E86;
+  --md-primary-fg-color--dark: #010c24;
+
+  --md-accent-fg-color: #3673F5;
+  --md-accent-fg-color--transparent: rgba(54, 115, 245, 0.12);
+
+  --md-default-fg-color: #071d4b;
+  --md-default-bg-color: #ffffff;
+
+  --md-code-bg-color: #E7EEFE;
+}
+
+/* ---------------- Global Typography ---------------- */
+
+.md-typeset {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #071d4b;
+}
+
+/* ---------------- Links ---------------- */
+
+.md-typeset a {
+  color: #0D7534;              /* Dark green */
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.md-typeset a:hover {
+  color: #17D45C;              /* Brighter green on hover */
+  text-decoration-thickness: 2px;
+}
+
+/* Strong emphasis */
+.md-typeset strong {
+  font-weight: 800;
+  color: #071d4b;
+}
+
+.md-typeset em {
+  color: #1B3E86;
+}
+
+/* ---------------- Header / Nav ---------------- */
+
+.md-header,
+.md-tabs {
+  background: #071d4b;
+}
+
+.md-nav__link--active,
+.md-nav__link:hover {
+  color: #3673F5;
+}
+
+/* ---------------- Headings Hierarchy (Cleaned) ---------------- */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: 1.7em;
+  margin-bottom: 0.6em;
+}
+
+/* H1 — Ink, dominant */
+.md-typeset h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+ color: #1B3E86;
+  margin-top: 0.2em;
+}
+
+/* H2 — Navy section headers */
+.md-typeset h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #3673F5;
+}
+
+/* H3 — Green grouping with subtle left rail */
+.md-typeset h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0D7534;
+
+
+}
+
+/* H4 — Bright blue detail */
+.md-typeset h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1B3E86;
+}
+
+/* H6 — Cycle back to Ink (brand safe) */
+.md-typeset h5 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0D7534;   /* same as H3 */
+}
+
+/* H6 — Subtle uppercase micro-heading */
+.md-typeset h6 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(7, 29, 75, 0.7);
+
+  letter-spacing: 0.08em;
+}
+/* ---------------- Secondary TOC Styling ---------------- */
+
+.md-nav--secondary .md-nav__title {
+  color: #1B3E86;
+  font-weight: 800;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  color: #0D7534;
+}
+
+/* ---------------- Buttons ---------------- */
+
+.md-typeset .md-button {
+  border-radius: 0.6rem;
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary {
+  background: #3673F5;
+  border-color: #3673F5;
+  color: #ffffff;
+}
+
+.md-typeset .md-button--primary:hover {
+  background: #1B3E86;
+  border-color: #1B3E86;
+}
+
+/* ---------------- Code Blocks ---------------- */
+
+.md-typeset code {
+  color: #071d4b;
+  background: #E7EEFE;
+  border-radius: 0.4rem;
+  padding: 0.15em 0.4em;
+  font-weight: 500;
+}
+
+.md-typeset pre {
+  background: #E7EEFE;
+  border: 1px solid rgba(7, 29, 75, 0.12);
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+/* ---------------- Admonitions ---------------- */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.8rem;
+}
+
+/* Notes — blue */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border: 1px solid rgba(54, 115, 245, 0.3);
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background: #E7EEFE;
+}
+
+/* Tips — green */
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border: 1px solid rgba(23, 212, 92, 0.4);
+}
+
+.md-typeset .admonition.tip > .admonition-title,
+.md-typeset details.tip > summary {
+  background: #E8FCF0;
+}
+
+/* ---------------- Tables ---------------- */
+
+.md-typeset table:not([class]) {
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(7, 29, 75, 0.12);
+}
+
+.md-typeset table:not([class]) th {
+  background: #E7EEFE;
+  color: #071d4b;
+}
+
+/* ---------------- Horizontal Rule ---------------- */
+
+.md-typeset hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(54,115,245,0),
+    rgba(54,115,245,0.4),
+    rgba(23,212,92,0.4),
+    rgba(54,115,245,0)
+  );
+  margin: 2.5em 0;
+}
+
+/* ---------------- Selection ---------------- */
+
+::selection {
+  background: rgba(142, 177, 249, 0.65);
+}
+/* =====================================================
+   Sidebar + TOC — softer brand styling
+   Replace previous nav/TOC overrides with this
+===================================================== */
+
+/* Soft panel backgrounds (very subtle) */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  background: #ffffff;
+}
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  background: #ffffff;
+}
+
+/* --- LEFT NAV (site nav) --- */
+
+/* Section headings like “The Problem”, “The Shift” */
+.md-nav__item--section > .md-nav__link {
+  color: #1B3E86 !important;            /* Navy */
+  font-weight: 700 !important;          /* less shouty */
+  letter-spacing: -0.01em;
+  opacity: 1 !important;
+  margin-top: 0.35rem;
+}
+
+/* Regular nav links (inactive): ink but softened */
+.md-nav__link {
+  color: rgba(7, 29, 75, 0.78) !important;  /* softened ink */
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Hover: bright blue, no underline marker */
+.md-nav__link:hover {
+  color: #3673F5 !important;
+  text-decoration: none !important;
+}
+
+/* Active page: green text + subtle “pill” highlight */
+.md-nav__link--active,
+.md-nav__link--active:hover {
+  color: #0D7534 !important;            /* Dark green */
+  font-weight: 650 !important;
+  background: #E8FCF0;                  /* Soft green paper */
+
+}
+
+/* --- RIGHT NAV (on-page TOC) --- */
+
+/* Title “Table of contents” */
+.md-nav--secondary .md-nav__title {
+  color: #1B3E86 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+/* TOC links (inactive) */
+.md-nav--secondary .md-nav__link {
+  color: rgba(7, 29, 75, 0.75) !important;
+  font-weight: 450 !important;
+  opacity: 1 !important;
+}
+
+/* TOC hover */
+.md-nav--secondary .md-nav__link:hover {
+  color: #3673F5 !important;
+  text-decoration: none !important;
+}
+
+/* TOC active: green + soft blue highlight (less loud than underline) */
+.md-nav--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__link--active:hover {
+  color: #0D7534 !important;
+  font-weight: 650 !important;
+  background: #E8FCF0;
+
+}
+
+/* Remove the built-in active indicator line to avoid “dark” look */
+.md-nav--secondary .md-nav__link--active::before {
+  display: none !important;
+}
+
+/* =====================================================
+   Density pass: smaller headings + tighter spacing
+   Drop this AFTER your existing theme CSS
+===================================================== */
+
+/* --- Body text density --- */
+.md-typeset {
+  line-height: 1.45; /* was 1.6 */
+}
+
+/* Paragraph spacing */
+.md-typeset p {
+  margin: 0.55em 0;  /* default is airier */
+}
+
+/* Lists: keep readable but tighter */
+.md-typeset ul,
+.md-typeset ol {
+  margin: 0.5em 0 0.7em;
+}
+.md-typeset li {
+  margin: 0.18em 0;
+}
+
+/* Block spacing for common elements */
+.md-typeset blockquote,
+.md-typeset pre,
+.md-typeset details,
+.md-typeset .admonition,
+.md-typeset table:not([class]) {
+  margin: 0.9em 0;
+}
+
+/* --- Headings: smaller + less vertical gap --- */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  line-height: 1.18;      /* was 1.15 */
+  margin-top: 1.15em;     /* was 1.7em */
+  margin-bottom: 0.35em;  /* was 0.6em */
+}
+
+/* H1 */
+.md-typeset h1 {
+  font-size: 1.85rem; /* was 2.2rem */
+  margin-top: 0.1em;  /* was 0.2em */
+}
+
+/* H2 */
+.md-typeset h2 {
+  font-size: 1.35rem; /* was 1.6rem */
+}
+
+/* H3 */
+.md-typeset h3 {
+  font-size: 1.12rem; /* was 1.25rem */
+}
+
+/* H4 */
+.md-typeset h4 {
+  font-size: 1.00rem; /* was 1.05rem */
+}
+
+/* H5 */
+.md-typeset h5 {
+  font-size: 0.92rem; /* was 0.95rem */
+}
+
+/* H6 */
+.md-typeset h6 {
+  font-size: 0.82rem; /* was 0.85rem */
+  letter-spacing: 0.06em; /* slightly less spaced */
+}
+
+/* If you use lots of headings back-to-back, reduce compounding whitespace */
+.md-typeset h2 + h3,
+.md-typeset h3 + h4,
+.md-typeset h4 + h5 {
+  margin-top: 0.6em;
+}
+
+/* Optional: tighten the big horizontal rule spacing */
+.md-typeset hr {
+  margin: 1.6em 0; /* was 2.5em 0 */
+}
+.md-typeset h5 {
+  text-transform: none;
+}
+
+/* =========================================
+   Global blockquote override (no left bar)
+========================================= */
+
+.md-typeset blockquote {
+  border-left: none !important;     /* remove bar */
+  background: none !important;      /* remove subtle bg */
+  margin: 1em 0 1em 1rem;           /* 1rem left indent */
+  padding: 0;                       /* remove default padding */
+  font-style: italic;               /* italicise content */
+  color: #071d4b;                   /* brand Ink */
+}
+
+.md-typeset blockquote p {
+  margin: 0;                        /* tighten spacing inside */
+}
+
+/* =====================================================
+   Site title ("PredictionSwap") — keep it on-brand
+   (This is UI chrome, not .md-typeset content)
+===================================================== */
+
+/* Sidebar / drawer title */
+.md-nav__title {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #071d4b !important; /* Ink */
+  opacity: 1 !important;
+}
+
+/* If it appears in the top header bar too */
+.md-header__title,
+.md-header__title .md-header__topic,
+.md-header__title .md-header__ellipsis {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Header is dark, so the title should be light */
+.md-header__title,
+.md-header__title .md-header__topic,
+.md-header__title .md-header__ellipsis {
+  color: #ffffff !important;
+} 
+
+/* =========================================
+   Header brand split
+   Prediction (white) | Swap (brand blue)
+========================================= */
+
+.md-header__title .brand-swap {
+  color: #3673F5 !important; /* Brand Blue */
+}
+
+/* =========================================
+   Header brand split
+   Prediction | Swap | Foundational Docs
+========================================= */
+
+.md-header__title .brand-swap {
+  color: #3673F5 !important; /* Brand Blue */
+}
+
+.md-header__title .brand-foundation {
+  color: #7FE8A6 !important; /* LightGreen */
+  font-weight: 700;
+  margin-left: 0.35rem;
+}
+
+/* Make logo link to main site */
+.md-header__button.md-logo {
+  pointer-events: auto;
+}
+
+.md-header__button.md-logo a {
+  pointer-events: auto;
+}
+
+/* =========================================
+   Header logo sizing + "button" feel
+========================================= */
+
+/* Make logo image bigger */
+.md-header__button.md-logo img {
+  height: 35px;      /* try 40–52px */
+  width: auto;
+}
+
+/* =========================================
+   Header vertical tightening
+========================================= */
+
+/* Reduce total header height */
+.md-header {
+  min-height: 20px;   /* default is taller */
+}
+
+/* Reduce inner vertical padding */
+.md-header__inner {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+/* Remove extra margin around logo button */
+.md-header__button.md-logo {
+  margin: 0;
+  padding: 0px 0px;   /* adjust as desired */
+}
+
+/* Make logo align vertically cleanly */
+.md-header__button.md-logo img {
+  display: block;
+}
+/* =========================================
+   Remove "Made with Material for MkDocs"
+========================================= */
+
+.md-footer-meta {
+  display: none !important;
+}
