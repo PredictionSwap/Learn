@@ -1,8 +1,17 @@
 # Structural Inefficiencies in Prediction Markets
 
-## The Representational Duplication Problem
+<div style="font-size: 1.25rem; font-weight: 600; margin-top: -0.5rem;">
+The Representational Duplication Problem
+</div>
 
 ---
+
+## Introduction
+
+In addition to the structural inefficiencies in on-chain prediction market systems that are mitigated through centralisation (see [Why Is Polymarket Centralised?](./Centralisation.md)), there is a further inefficiency that remains unresolved in current designs.
+
+PredictionSwap addresses this directly at the protocol level.
+
 
 ## 1. Yes/No Markets as the Primitive
 
