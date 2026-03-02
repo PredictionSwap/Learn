@@ -1,6 +1,6 @@
-# ZAMMs: Automated Market Makers Without Pools
+# ZAMMs: Automated Market Makers Without Pools  
 
-## Zero-Sum Automated Market Makers
+## Zero-Sum Automated Market Makers  
 
 Under PredictionSwap, market makers no longer need to manage pools of outcome tokens or manually split, merge, allocate, and deallocate funds to specific markets.
 
@@ -14,16 +14,20 @@ These are **Zero-Sum Automated Market Makers**, or **ZAMMs**.
 
 ---
 
-## What a ZAMM Is
+## 1. What a ZAMM Is  
+
+### Core Mechanism  
 
 A ZAMM is a contract that decides whether to accept a proposed trade.
 
 When a trader submits a position change, the ZAMM evaluates it according to its own internal rules.
 
 - If it accepts the trade, the protocol executes it.  
-- If it rejects the trade, nothing happens.
+- If it rejects the trade, nothing happens.  
 
 That is the entire mechanism.
+
+### What a ZAMM Does *Not* Do  
 
 A ZAMM:
 
@@ -37,7 +41,9 @@ Liquidity becomes a rule over admissible trades.
 
 ---
 
-## A Broader Class of Market Maker
+## 2. A Broader Class of Market Maker  
+
+### Traditional AMMs as Special Cases  
 
 Traditional automated market makers can be understood as specific examples of this structure.
 
@@ -47,6 +53,8 @@ Traditional automated market makers can be understood as specific examples of th
 Both determine which trades are allowed and at what price.
 
 Under PredictionSwap, these can be implemented as ZAMMs.
+
+### Beyond Fixed Curves  
 
 But ZAMMs are **not** restricted to fixed curves or symmetric rules.
 
@@ -59,9 +67,11 @@ There is no requirement that liquidity:
 
 ---
 
-## Liquidity as Acceptance Rules
+## 3. Liquidity as Acceptance Rules  
 
 Because the protocol handles netting and collateral automatically, a ZAMM is free to define its own acceptance rules.
+
+### What This Enables  
 
 It can:
 
@@ -80,7 +90,9 @@ It is defined by what position changes the ZAMM is willing to accept.
 
 ---
 
-## One ZAMM, Many Markets
+## 4. One ZAMM, Many Markets  
+
+### No Per-Market Pools  
 
 Traditional AMMs require separate pools per market.
 
@@ -93,13 +105,17 @@ It does not need to:
 - Pre-allocate inventory per event  
 - Open separate pools for each outcome  
 
+### Structural Consequence  
+
 It can quote across thousands of independently resolving zero-sum markets without fragmenting capital.
 
 This is a significant structural difference to existing systems.
 
 ---
 
-## Composite ZAMMs
+## 5. Composite ZAMMs  
+
+### Modular Liquidity Policies  
 
 A **Composite ZAMM** is a single capital base that runs multiple liquidity modules.
 
@@ -113,6 +129,8 @@ For example:
 
 Each module evaluates trades independently according to its own policy.
 
+### Unified Capital  
+
 But all accepted trades draw from the same underlying capital.
 
 - There are no separate pools to divide.  
@@ -124,7 +142,9 @@ Capital remains unified.
 
 ---
 
-## Conclusion
+## Conclusion  
+
+### The Structural Shift  
 
 ZAMMs generalise automated market making.
 

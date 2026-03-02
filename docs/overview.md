@@ -32,7 +32,7 @@ When exposure is the primitive:
 - Execution no longer depends on holding the “right” token inventory  
 
 ### Read
-- [Exposure Execution](./ExposureExecution.md)  
+- [Better Execution](./ExposureExecution.md)  
 - [Why Intents Are Simpler](./SimplifiedIntents.md)  
 
 ---
