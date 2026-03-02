@@ -57,7 +57,9 @@ extra:
 nav:
 
   - Main Site: https://predictionswap.org
-  - Overview: index.md
+  - Introduction:
+      - Start: index.md
+      - Overview: overview.md
 
   - The Problem:
       - "Why Is Polymarket Centralised?": Centralisation.md
