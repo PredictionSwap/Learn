@@ -1,12 +1,25 @@
-# Better Execution
+# What Is A Trade?
 
 ## Introduction
 
-There are multiple examples of trades which fail under the traditional token representation framework because either the maker or the taker havent transformed their token representations to fufill the trade, or the transaction requires a flashloan in order to execute.
+### What is a trade?
 
-Under the PredictionSwap protocol as long as both participants have a solvent final economic state the trade will execute. 
+#### Traditional Representation
+In traditional on-chain prediction markets, a trade is defined as an exchange of tokens. One participant sends cash, the other sends specific outcome tokens. Execution depends on both parties holding the correct inventory in the correct representation.
 
-Below are two simple examples that show how trades work under the exposure representation system.
+Under that definition, many economically valid trades fail. Not because they are unsound, but because one side does not hold the required tokens, or because the trade would require intermediate transformations or flash loans to complete. The constraint is not economic — it is representational.
+
+---
+
+#### PredictionSwap Representation
+PredictionSwap adopts a different definition.
+
+A trade is not an asset swap.
+A trade is a pair of equal and opposite exposure transformations applied to two accounts.
+
+Execution depends only on the resulting economic state. If both participants remain solvent in every possible outcome, the trade is valid and executes.
+
+The examples below illustrate the difference between defining a trade as a token exchange and defining a trade as a state transition.
 
 ---
 

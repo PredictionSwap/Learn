@@ -36,7 +36,10 @@ PredictionSwap records **exposure first** and builds token balances from exposur
 - Execution no longer depends on holding the “right” token inventory  
 
 ### Read
-- [Better Execution](./ExposureExecution.md)  
+- [A New Representation](./Representation.md)
+- [PredictionSwap Position Tokens](./Tokens.md)
+- [Automatic Netting](./Netting.md)
+- [What Is A Trade?](./WhatIsATrade.md)  
 - [Why Intents Are Simpler](./SimplifiedIntents.md)  
 
 ---

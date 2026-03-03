@@ -66,8 +66,11 @@ nav:
       - "Additional Structural Inefficiencies in Polymarket": Inefficiencies.md
 
   - The Shift:
-      - "Better Execution": ExposureExecution.md
-      - "Simplified Intents": SimplifiedIntents.md
+    - "A New Representation": Representation.md
+    - "PredictionSwap Position Tokens": Tokens.md
+    - "Automatic Netting": Netting.md
+    - "What Is A Trade?": WhatIsATrade.md
+    - "Simplified Intents": SimplifiedIntents.md
 
   - The Unlock:
       - "Open Prediction Markets: A New Landscape": NewLandscape.md
