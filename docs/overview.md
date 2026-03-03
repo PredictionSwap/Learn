@@ -44,7 +44,7 @@ PredictionSwap records **exposure first** and builds token balances from exposur
 
 ---
 
-## What This Unlocks
+## The Unlock
 
 There is a cascade of positive benefits from having a more efficient on-chain representation. 
 
