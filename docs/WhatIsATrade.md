@@ -7,7 +7,9 @@
 #### Traditional Representation
 In traditional on-chain prediction markets, a trade is defined as an exchange of tokens. One participant sends cash, the other sends specific outcome tokens. Execution depends on both parties holding the correct inventory in the correct representation.
 
-Under that definition, many economically valid trades fail. Not because they are unsound, but because one side does not hold the required tokens, or because the trade would require intermediate transformations or flash loans to complete. The constraint is not economic — it is representational.
+Under that definition, many economically valid trades fail. Not because they are unsound, but because one side does not hold the required tokens, or because the trade would require intermediate transformations or flash loans to complete. 
+
+Valid are defined by representation.
 
 ---
 
