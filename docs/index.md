@@ -10,7 +10,7 @@ The protocol layer for prediction markets.
 
 - Liquidity Without Inventory
 
-- A New Lanscape of Applications and AMMs
+- A New Landscape of Applications and AMMs
 
 <br>
 

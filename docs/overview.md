@@ -58,7 +58,7 @@ There is a cascade of positive benefits from having a more efficient on-chain re
 
 ---
 
-## About Foundational Docs
+## About PredictionSwap Learn
 
 This site is a curated set of conceptual articles explaining the structural foundations of PredictionSwap.  
 
