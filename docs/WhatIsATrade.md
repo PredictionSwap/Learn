@@ -9,7 +9,7 @@ In traditional on-chain prediction markets, a trade is defined as an exchange of
 
 Under that definition, many economically valid trades fail. Not because they are unsound, but because one side does not hold the required tokens, or because the trade would require intermediate transformations or flash loans to complete. 
 
-Valid are defined by representation.
+Valid trades are defined by representation.
 
 ---
 
