@@ -4,10 +4,9 @@
 
 ### PredictionSwap changes how economic state is recorded on-chain.
 
-Traditional prediction markets record token balances first and economic exposure is then derived from those balances.  
+Traditional prediction markets record token balances first, and the conditional value of an account under each outcome is derived from those balances.
 
-PredictionSwap records economic exposure directly.
-
+PredictionSwap records the account value conditional on outcomes directly.
 ---
 
 ## The Traditional Representation
@@ -20,11 +19,11 @@ PredictionSwap records economic exposure directly.
 
 State is a collection of token quantities.
 
-The same economic exposure can arrise from different collections of tokens.
+The same conditional account value can arise from different collections of tokens.
 
 ---
 
-## The Exposure Vector Representation
+## The Conditional Account Value Vector Representation
 
 ### An account state is defined by a single object:
 
@@ -40,7 +39,7 @@ This vector is the account’s complete economic state.
 
 ---
 
-## What is an Exposure Vector?
+## What is a Conditional Account Value Vector?
 
 ### A payoff function defined over outcome space.
 
@@ -50,7 +49,7 @@ For an event with outcomes:
 \Omega = \{ \omega_1, \omega_2, \dots, \omega_n \}
 \]
 
-an exposure vector
+a Conditional Account Value Vector
 
 \[
 e = (e_1, e_2, \dots, e_n)
@@ -60,7 +59,7 @@ specifies the value of an account in each possible outcome.
 
 Each component \( e_k \) is the account’s value if outcome \( \omega_k \) occurs.
 
-The exposure vectorfully describes economic state.
+The Conditional Account Value Vector fully describes the economic state of the account.
 
 ### An Example
 Consider a mutually exclusive outcome space:
@@ -71,7 +70,7 @@ Consider a mutually exclusive outcome space:
 
 Exactly one of these outcomes will occur.
 
-We consider how we represent a positon for Alice within this market under the traditional representation and under a PredictionSwap representation.
+We consider how we represent a position for Alice within this market under the traditional representation and under a PredictionSwap representation.
 
 ---
 
@@ -129,7 +128,7 @@ This vector completely describes her economic position.
 
 ---
 
-### Exposure Representation
+### Conditional Account Value Representation
 
 #### PredictionSwap stores:
 

@@ -17,7 +17,7 @@ Valid trades are defined by representation.
 PredictionSwap adopts a different definition.
 
 A trade is not an asset swap.
-A trade is a pair of equal and opposite exposure transformations applied to two accounts.
+A trade is a pair of equal and opposite changes to the Conditional Account Value Vectors of two accounts.
 
 Execution depends only on the resulting economic state. If both participants remain solvent in every possible outcome, the trade is valid and executes.
 
@@ -70,13 +70,13 @@ Execution succeeds, both participants have the correct tokens for the trade.
 
 ---
 
-### Exposure Accounting
+### Account Value Accounting
 
-#### Step 1 — Translate Holdings to Exposure Vectors
+#### Step 1 — Translate Holdings to Conditional Account Value Vectors
 
 Initial:
 
-We translate all holdings Alice and Bob have into exposure vectors.
+We translate all holdings Alice and Bob have into Conditional Account Value Vectors.
 
 \[
 e = (e_R, e_G, e_B)
@@ -98,7 +98,7 @@ e_B = (5,0,0)
 
 ---
 
-#### Step 2 — Translate the Trade into Exposure \(\Delta\)
+#### Step 2 — Translate the Trade into an Account Value \(\Delta\)
 
 Alice wants to buy \(2\,\text{YES–R}\) at price \(0.6\).
 
@@ -112,13 +112,13 @@ Translation:
 \text{Pay }0.6 \rightarrow (-0.6,-0.6,-0.6)
 \]
 
-Combined exposure change:
+Combined vector change in account value:
 
 \[
 \Delta e = (+1.4,-0.6,-0.6)
 \]
 
-Bob agrees to take the opposite exposure:
+Bob agrees to take the opposite vector change:
 
 \[
 -\Delta e
@@ -150,7 +150,7 @@ e_B \rightarrow e_B - \Delta e
 = (3.6,0.6,0.6)
 \]
 
-The trade executes because both accounts still have positive exposures in every possible world.
+The trade executes because both accounts still have positive account values in every possible world.
 ---
 
 ## Example 2 — Trade That Fails Under Traditional Token Holdings
@@ -173,7 +173,7 @@ Therefore the trade fails.
 
 ---
 
-### Exposure-Based Model
+### Account Value Model
 
 Alice holds:
 - \$10  
@@ -193,7 +193,7 @@ e_B = (5,0,5)
 
 ---
 
-#### Step 1 — Translate the Trade into Exposure \(\Delta\)
+#### Step 1 — Translate the Trade into a Vector Change \(\Delta\)
 
 As before Alice wants to buy \(2\,\text{YES–R}\) for \$0.6.
 
@@ -207,13 +207,13 @@ Recap:
 \text{Pay }0.6 \rightarrow (-0.6,-0.6,-0.6)
 \]
 
-Combined exposure change:
+Combined vector change:
 
 \[
 \Delta e = (+1.4,-0.6,-0.6)
 \]
 
-Bob agrees to take the opposite exposure:
+Bob agrees to take the opposite vector change:
 
 \[
 -\Delta e
@@ -245,7 +245,7 @@ e_B \rightarrow e_B - \Delta e
 = (3.6,0.6,5.6)
 \]
 
-The trade executes because both accounts still have positive exposures in every possible world.
+The trade executes because both accounts still have positive account values in every possible world.
 
 
 ---
@@ -257,7 +257,7 @@ The trade executes because both accounts still have positive exposures in every 
 - Requires specific asset inventory  
 - Trades may fail due to token representation  
 
-### Exposure model
+### Account value model
 
 - Updates payoff vectors directly  
 - Trades depend only on economic capacity  
@@ -269,7 +269,7 @@ The trade executes because both accounts still have positive exposures in every 
 
 ### Liquidity without inventory
 
-Because trades are expressed directly as exposure deltas, execution updates payoff vectors symmetrically:
+Because trades are expressed directly as vector changes Δe, execution updates payoff vectors symmetrically:
 
 \[
 e_A \rightarrow e_A + \Delta e
@@ -279,9 +279,9 @@ e_A \rightarrow e_A + \Delta e
 e_B \rightarrow e_B - \Delta e
 \]
 
-Trading is a redistribution of exposure between participants.
+Trading redistributes Conditional Account Value between participants.
 
-The trade executes if and only if the resulting exposure vectors remain solvent:
+The trade executes if and only if the resulting Conditional Account Value Vectors remain solvent:
 
 \[
 e_{A,k} > 0
@@ -291,7 +291,7 @@ e_{B,k} > 0
 \forall k \in \Omega
 \]
 
-Liquidity therefore becomes a rule over admissible exposure changes, rather than a pool of pre-allocated tokens.
+Liquidity therefore becomes a rule over admissible conditional account value vector changes, rather than a pool of pre-allocated tokens.
 
 ---
 
@@ -299,11 +299,11 @@ Liquidity therefore becomes a rule over admissible exposure changes, rather than
 
 An intent specifies:
 
-- A desired exposure change \(\Delta e\)  
+- A desired account value vector change \(\Delta e\)  
 
 Matching simply requires pairing with
 
-- A corresponding exposure change \( - \Delta e\)
+- A corresponding vector change \( - \Delta e\)
 
 ---
 
@@ -311,6 +311,6 @@ Matching simply requires pairing with
 
 A new powerful class of Zero Sum Automatic Market Makers becomes possible as liquidity providers no longer manage pools of YES and NO tokens.
 
-ZAMMs simply decide whether to accept a proposed exposure change \(\Delta e\).
+ZAMMs simply decide whether to accept a proposed change in account value vector \(\Delta e\).
 
 ---

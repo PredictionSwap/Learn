@@ -2,7 +2,7 @@
 
 ## Introduction
 
-PredictionSwap removes the token inventory requirement from trade execution. This means liquidity can be expressed directly as exposure delta intents.
+PredictionSwap removes the token inventory requirement from trade execution. This means liquidity can be expressed directly as intents describing a vector change Δe to the Conditional Account Value Vector.
 
 This dramatically simplifies matching and filling intents.
 
@@ -29,7 +29,7 @@ Buy 3 YES @ 0.42
 Sell 3 YES @ 0.42
 ```
 
-##### The exposure and cash changes applied to the ledger are:
+##### The resulting change in conditional account value is:
 
 ```
 Alice
@@ -54,7 +54,7 @@ Intents can also be batched and executed by a matcher.
 
 The matcher does not require any assets or a flash loan.
 
-The trades execute atomically, and the ledger applies the resulting exposure and cash updates directly.
+The trades execute atomically, and the ledger applies the resulting Conditional Account Value Vector updates directly.
 
 
 #### Example:
@@ -80,7 +80,7 @@ Alice buys 3 YES from Mike @ 0.42
 Mike buys 3 YES from Bob @ 0.40
 ```
 
-##### The exposure and cash changes applied to the ledger are:
+##### The resulting vector changes in conditional account value are:
 
 ```
 Alice
@@ -103,7 +103,7 @@ Mike
 ```
 
 
-**No capital, tokens, exposure or inventory is required for Mike to perform this match.**
+**No capital, tokens, or inventory is required for Mike to perform this match.**
 
 The atomic trade is netted automatically in the ledger and Mike captures the spread.
 
@@ -136,26 +136,26 @@ Execution may require:
 
 Matching therefore becomes a token routing and optimisation problem.
 
-### Exposure Settlement
+### Account Value Settlement
 
 PredictionSwap does not require any token routing.
 
-Trades simply apply equal and opposite exposure updates to the ledger.
+Trades simply apply equal and opposite vector updates Δe to each Conditional Account Value in the ledger.
 
-Matching only needs to determine whether the exposure changes cancel out.
+Matching only needs to determine whether the vector changes are equal and opposite.
 
-If they do, the trade can execute.
+If they are, the trade can execute.
 
 ---
 
 
-## Decentralised Liquidty
+## Decentralised Liquidity
 
-### Orderbooks emerge naturally
-Participants publish intents describing the exposure they are willing to take and the price they are willing to accept. These intents sit in the system like limit orders.
+### Orderbooks emerge naturally
+Participants publish intents describing the Conditional Account Value Vector change Δe they are willing to accept and the price they are willing to accept. These intents sit in the system like limit orders.
 
 ### Simplified matching
-Matchers scan for overlaps and clear them, capturing the spread between prices. Because execution only requires applying exposure updates, matchers do not need to supply capital or route tokens.
+Matchers scan for overlaps and clear them, capturing the spread between prices. Because execution only requires applying vector updates to conditional account value, matchers do not need to supply capital or route tokens.
 
 ### Liquidity As Intents
 Liquidity therefore organises itself as a network of gasless intents, with matchers continuously clearing opportunities as they appear.

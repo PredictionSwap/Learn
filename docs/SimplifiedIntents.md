@@ -36,6 +36,7 @@ Every trade is a single bet with two sides:
 There are not separate YES and NO trades.
 There is only one trade with two opposing sides.
 
+
 ---
 
 ## Token Requirements
@@ -68,20 +69,24 @@ cash on one side, tokens on the other.
 
 ### New Model
 
-In PredictionSwap two participants agree to equal and opposite changes in exposure.
+In PredictionSwap two participants agree to equal and opposite changes in Conditional Account Value.
 
-#### Exposure Requirements
+#### Requirements
 
 - No specific token inventory is required.
-- Each participant must have sufficient economic headroom to absorb the proposed exposure change.
-- After applying the exposure update, both accounts must remain solvent.
+- Each participant must be able to absorb the proposed vector change Δe.
+
+Δe denotes a vector change to the Conditional Account Value Vector.  
+It specifies how the value of the account changes under each possible outcome.
+
+- After applying the vector update, both participant's Conditional Account Value Vectors must remain solvent.
 
 #### Summary
 
 Execution depends only on post-trade solvency.
 
-The trade functions as a direct exposure update:
-equal and opposite exposure changes applied simultaneously.
+The trade functions as a direct vector update to Conditional Account Value.
+equal and opposite changes applied simultaneously.
 
 ---
 
@@ -100,8 +105,8 @@ equal and opposite exposure changes applied simultaneously.
 
 ### In the new model:
 
-- Trades are exposure updates.
-- Both sides take equal and opposite changes in exposure.
+- Trades are vector updates.
+- Both sides accept equal and opposite vector changes Δe.
 - Execution depends only on both participants having sufficient economic headroom.
 - There is no requirement to pre-hold YES, NO, or cash.
 
@@ -110,8 +115,8 @@ equal and opposite exposure changes applied simultaneously.
 ### As a result:
 
 - Intent matching no longer depends on token inventory.
-- An intent only needs to specify which side of the exposure change the participant wants.
-- Execution succeeds whenever both sides can absorb the exposure.
+- An intent only needs to specify the vector change Δe the participant wishes to accept.
+- Execution succeeds whenever both sides can absorb the proposed vector change.
 
 The simplification comes from removing inventory constraints and reducing trades to symmetric exposure changes.
 

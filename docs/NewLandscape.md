@@ -201,7 +201,7 @@ Collateral remains trapped even when exposures cancel.
 PredictionSwap enforces netting at the protocol level.
 
 - Economically equivalent positions resolve to the same state  
-- Offsetting exposure collapses automatically  
+- Offsetting positions collapses automatically  
 - Collateral is freed immediately  
 
 Netting is not an optimisation layer.

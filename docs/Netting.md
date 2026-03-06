@@ -2,9 +2,9 @@
 
 ## Overview
 
-Automatic netting is a structural consequence of PredictionSwap's exposure representation.
+Automatic netting is a structural consequence of PredictionSwap's account value representation.
 
-This section contrasts how offsetting positions are handled under the traditional token model and under the exposure model.
+This section contrasts how offsetting positions are handled under the traditional token model and under the account value model.
 
 ---
 
@@ -81,7 +81,7 @@ It requires a separate action.
 
 ### Initial Position
 
-State is recorded directly as an exposure vector.
+Account State is recorded directly as a Conditional Account Value Vector.
 
 Alice initially holds:
 
@@ -89,7 +89,7 @@ Alice initially holds:
 - 2 YES–R  
 - 2 YES–B  
 
-Her exposure is:
+Her Conditional Account Value Vector is:
 
 \[
 e = (7,5,7)
@@ -103,8 +103,8 @@ e = 5(1,1,1) + (2,0,2)
 
 #### Interpretation
 
-- Cash = 5  
-- Shares = (2,0,2)
+- freeCash = 5  
+- Conditional Position Value = (2,0,2)
 
 ---
 
@@ -124,8 +124,8 @@ e = 6(1,1,1) + (0,0,0)
 
 #### Interpretation
 
-- Cash = 6  
-- Shares = (0,0,0)
+- freeCash = 6  
+- Conditional Position Value = (0,0,0)
 
 ---
 
@@ -133,7 +133,7 @@ e = 6(1,1,1) + (0,0,0)
 
 No merge operation is required.
 
-The complete set of YES tokens collapses automatically into uniform exposure, which is represented directly as cash.
+The complete set of YES tokens collapses automatically into uniform account value, which is represented directly as freeCash.
 
 Netting is not an action.  
 It is a property of the representation.
