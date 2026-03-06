@@ -151,6 +151,7 @@ e_B \rightarrow e_B - \Delta e
 \]
 
 The trade executes because both accounts still have positive account values in every possible world.
+
 ---
 
 ## Example 2 — Trade That Fails Under Traditional Token Holdings
@@ -246,7 +247,6 @@ e_B \rightarrow e_B - \Delta e
 \]
 
 The trade executes because both accounts still have positive account values in every possible world.
-
 
 ---
 
