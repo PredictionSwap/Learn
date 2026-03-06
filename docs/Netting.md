@@ -49,7 +49,7 @@ Alice buys:
 - 2 YES–G  
 - 2 YES–B  
 
-#### She now holds one complete set:
+#### She now holds two complete sets:
 
 - 2 YES–R  
 - 2 YES–G  
