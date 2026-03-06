@@ -7,6 +7,7 @@
 Traditional prediction markets record token balances first, and the conditional value of an account under each outcome is derived from those balances.
 
 PredictionSwap records the account value conditional on outcomes directly.
+
 ---
 
 ## The Traditional Representation
