@@ -46,13 +46,13 @@ The loan itself behaves like a standard fixed-term credit instrument.
 
 ### Collateral Risk Moves to the Market
 
-One important consequence of this design is that the lending protocol no longer needs to hold the price risk of the collateral.
+One important consequence of this design is that the lending protocol no longer needs to manage the price risk of the collateral.
 
-As long as a prediction market exists for the asset’s price distribution over the loan horizon, the protocol can hedge the relevant outcomes.
+As long as a prediction market exists for the asset’s price distribution over the loan horizon, the protocol can hedge the relevant outcomes atommically at issuance.
 
 In principle this means any asset with a tradable prediction market could be used as collateral, because the downside exposure is transferred to counterparties in the prediction market rather than borne by the lending system itself.
 
-This is a significant shift from the current model, where protocols must carefully choose collateral assets and configure conservative risk parameters.
+This is a significant shift from the current model, where protocols must carefully choose collateral assets and configure conservative risk parameters. And means there is no structural risk in the amount of any one asset which is used as collateral. 
 
 ---
 
