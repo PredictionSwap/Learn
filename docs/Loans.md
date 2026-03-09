@@ -2,9 +2,38 @@
 
 ## The Current DeFi Lending Model
 
-In DeFi today, lending protocols manage risk using over-collateralisation and liquidation mechanics. Borrowers must maintain a health factor above a threshold, and if the collateral price falls too far the position is liquidated and the collateral is sold to repay lenders.
+In DeFi today, lending protocols such as Aave manage risk through **over-collateralisation and liquidation mechanics**.
 
-This design protects lenders, but creates loans whose terms change unpredictably as prices move.
+Borrowers deposit collateral worth more than the value of the loan they receive. Each position has a **health factor**, which measures how safely the collateral covers the outstanding debt. If the collateral price falls and the health factor drops below a defined threshold, the protocol allows **liquidators** to repay part of the loan and buy the collateral at a discount.
+
+### Over-Collateralised Borrowing
+
+Unlike traditional lending, DeFi loans typically require borrowers to post collateral worth significantly more than the amount borrowed.
+
+This buffer exists so that if the price of the collateral falls, the protocol still has enough value locked in the system to repay lenders. The collateral therefore acts as the primary protection mechanism for the loan.
+
+
+### System-Level Risk Management
+
+Liquidations are not the only protection mechanism used by lending protocols.
+
+Systems such as Aave also rely on a wider set of **risk management tools and incentives**, including:
+
+
+- conservative collateralisation ratios  
+- liquidation bonuses paid to liquidators  
+- continuously updated price feeds from oracles  
+- protocol reserves designed to absorb losses in extreme situations  
+- supply caps
+- borrowing limits 
+
+Together, these mechanisms are designed to protect lenders even during volatile market conditions.
+
+### A Loan That Changes With the Market
+
+This architecture protects lenders through a combination of **collateral buffers, liquidation incentives, and protocol reserves**.
+
+But it also means that DeFi loans do not behave like traditional fixed-term credit instruments. Borrowers must actively manage their positions to avoid liquidation, and the effective terms of the loan change continuously as market prices move.
 
 What follows describes a different type of lending product entirely.
 
