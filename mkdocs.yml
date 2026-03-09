@@ -76,6 +76,7 @@ nav:
       - "Open Prediction Markets: A New Landscape": NewLandscape.md
       - "Intent-Based Liquidity": IntentLiquidity.md
       - "ZAMMs: Automated Market Makers Without Pools": ZAMMs.md
+      - "Collateralised loans without liquidation risk": Loans.md
 
   - The Litepaper:
       - Litepaper (PDF): assets/litepaper.pdf

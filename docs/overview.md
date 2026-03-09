@@ -58,7 +58,8 @@ There is a cascade of positive benefits from having a more efficient on-chain re
 ### Read
 - [Open Prediction Markets: A New Landscape](./NewLandscape.md)
 - [Intent-Based Liquidity](./IntentLiquidity.md)  
-- [ZAMMs: Automated Market Makers Without Pools](./ZAMMs.md)  
+- [ZAMMs: Automated Market Makers Without Pools](./ZAMMs.md)
+- [Collateralized Loans without liquidation risk](./Loans.md)  
 
 ---
 
