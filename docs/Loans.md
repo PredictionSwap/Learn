@@ -2,9 +2,9 @@
 
 ## The Current DeFi Lending Model
 
-In DeFi today, lending protocols such as Aave manage risk through **over-collateralisation and liquidation mechanics**.
+In DeFi today, lending protocols such as Aave manage risk through over-collateralisation and liquidation mechanics.
 
-Borrowers deposit collateral worth more than the value of the loan they receive. Each position has a **health factor**, which measures how safely the collateral covers the outstanding debt. If the collateral price falls and the health factor drops below a defined threshold, the protocol allows **liquidators** to repay part of the loan and buy the collateral at a discount.
+Borrowers deposit collateral worth more than the value of the loan they receive. Each position has a health factor, which measures how safely the collateral covers the outstanding debt. If the collateral price falls and the health factor drops below a defined threshold, the protocol allows liquidators to repay part of the loan and buy the collateral at a discount.
 
 ### Over-Collateralised Borrowing
 
