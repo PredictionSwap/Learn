@@ -110,7 +110,7 @@ When trading occurs off-chain under the control of a platform, this is not possi
 
 The reason prediction platforms rely on centralised execution is that current underlying on-chain infrastrucutre is structurally inefficient to trade directly on-chain.
 
-PredictionSwap removes these inefficiencies at the protocol layer, allowing so trading can therefore occur fully on-chain and atomically.
+PredictionSwap removes these inefficiencies at the protocol layer, so trading can therefore occur fully on-chain and atomically.
 
 Once that constraint is removed, prediction markets can become composable financial infrastructure rather than standalone platforms. Products like fixed-term loans without liquidation risk can then be built directly on top.
 
