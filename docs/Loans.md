@@ -71,7 +71,7 @@ The loan itself behaves like a standard fixed-term credit instrument.
 
 One important consequence of this design is that the lending protocol no longer needs to manage the price risk of the collateral.
 
-As long as a prediction market exists for the asset’s price distribution over the loan horizon, the protocol can hedge the relevant outcomes atommically at issuance.
+As long as a prediction market exists for the asset’s price distribution over the loan horizon, the protocol can hedge the relevant outcomes atomically at issuance.
 
 In principle this means any asset with a tradable prediction market could be used as collateral, because the downside exposure is transferred to counterparties in the prediction market rather than borne by the lending system itself.
 
@@ -92,7 +92,7 @@ Instead of placing this risk on either the borrower or the lender, the risk expo
 
 ---
 
-## Why This Doesn’t Exist Yet
+## Why Existing Prediction Markets Can't Support This
 
 ### The Centralised Execution Problem
 
@@ -106,40 +106,19 @@ When trading occurs off-chain under the control of a platform, this is not possi
 
 ---
 
-## Prediction Markets as Core DeFi Infrastructure
-
-### From Platforms to Protocol Infrastructure
-
-If prediction markets become fully on-chain and atomically composable, they can function as core infrastructure for pricing and transferring financial risk.
-
-In that environment, the markets are no longer standalone venues where traders speculate on outcomes. Instead they form a shared layer that other protocols can interact with directly. Financial instruments can open, hedge, and rebalance positions against these markets within the same transaction that creates the underlying exposure.
-
-This changes how DeFi systems manage uncertainty. Instead of relying primarily on conservative parameters and liquidation mechanics, protocols can transfer specific risks to markets where traders explicitly price the probability of those outcomes.
-
-The result is a financial architecture in which uncertainty is not handled through rigid system rules, but through tradable exposures embedded directly into financial products. Prediction markets become a mechanism for distributing risk across the ecosystem, allowing lending, trading, and other protocols to incorporate market-priced probabilities directly into their design.
-
----
-
-## Why This Hasn’t Happened Yet
-
-### Structural Limits of Token-Based Prediction Markets
-
-Today’s prediction markets are still built around a centralised trading layer, even when settlement happens on-chain.
-
-On platforms such as Polymarket, the off-chain engine performs the coordination that token-based prediction markets cannot do cleanly on-chain: reconciling complementary trades across YES and NO, projecting liquidity from limited capital, and managing orders continuously without on-chain interaction.
-
-That matters here because the lending product described above only works if the hedge can be executed inside the same transaction as the loan itself. The cost of the hedge has to be known and locked in at issuance.
-
-If prediction trading lives off-chain under the control of a platform, another protocol cannot deterministically call into it and atomically buy the required outcomes at the moment the loan is created.
-
----
-
 ### The PredictionSwap Difference
 
-So the obstacle is not merely that prediction markets are “separate platforms.”
+The reason prediction platforms rely on centralised execution is that current underlying on-chain infrastrucutre is structurally inefficient to trade directly on-chain.
 
-It is that their current design depends on off-chain coordination to overcome structural inefficiencies in token-based prediction trading.
+PredictionSwap removes these inefficiencies at the protocol layer, allowing so trading can therefore occur fully on-chain and atomically.
 
-PredictionSwap removes those inefficiencies at the protocol layer, which is what makes fully on-chain, composable, atomic prediction trading possible in the first place.
+Once that constraint is removed, prediction markets can become composable financial infrastructure rather than standalone platforms. Products like fixed-term loans without liquidation risk can then be built directly on top.
 
-Once that constraint is removed, products like fixed-term loans without liquidation risk can be built directly on top.
+For a deeper explanation of these structural inefficiencies see:
+
+- [Why Is Polymarket Centralised?](./Centralisation.md)  
+- [Additional Structural Inefficiencies in Polymarket](./Inefficiencies.md)  
+
+
+
+
