@@ -1,153 +1,152 @@
 # Loans Without Liquidations
 
-## A Different Kind of DeFi Loan
+DeFi lending today relies on liquidation.
 
-Most DeFi loans rely on over-collateralisation and liquidation.
+When a borrower takes out a loan, they must deposit collateral worth significantly more than the amount borrowed. If the value of that collateral falls too far, the protocol liquidates the position and sells the collateral to repay lenders.
 
-Borrowers must maintain a collateral buffer above a threshold. If the collateral price falls too far, the position is liquidated and the collateral is sold to repay lenders.
+Liquidations are the mechanism that protects lenders from collateral price risk.
 
-### Problems With the Current Model
+But liquidation is not the only way to manage that risk.
 
-This model protects lenders, but it creates well-known problems:
+If the risk of a collateral price crash can be hedged at the moment a loan is issued, liquidation is no longer necessary. Instead of managing collateral risk through forced sales, the risk can be priced and transferred to a market at the moment the loan is created.
 
-- forced selling during market stress  
-- liquidation cascades  
-- loans whose effective terms change continuously as prices move  
-
-But there is another way to structure lending.
-
-Instead of managing collateral risk through liquidations, the risk can be priced and transferred to a market at the moment the loan is issued.
-
-This makes it possible to build fixed-term loans with no liquidation risk.
+This makes it possible to construct a different type of lending product entirely: fixed-term loans with no liquidation risk.
 
 ---
 
-## Hedging the Loan at the Moment It Is Created
+## Hedging the Loan at Issuance
 
-### Atomic Hedging
+The mechanism that makes this possible is atomic hedging.
 
-The key idea is atomic hedging.
+When a loan is issued, the protocol simultaneously purchases prediction market positions covering the range of collateral price outcomes that would normally trigger liquidation. Because the hedge and the loan are created in the same transaction, the cost of the hedge can be included directly in the loan pricing.
 
-When a loan is issued, the protocol simultaneously buys prediction market positions covering the range of collateral price outcomes that would normally trigger liquidation.
+The borrower therefore pays interest on two components:
 
-Because both operations occur in the same transaction, the cost of the hedge can be included directly in the loan pricing.
+- the amount borrowed  
+- the cost of the hedge that protects lenders from collateral price crashes  
 
-### Loan Pricing
+From the borrower’s perspective the loan behaves like a traditional fixed-term credit instrument. There is no liquidation threshold to monitor and no risk of forced collateral sales while the loan is active.
 
-The borrower therefore pays interest on:
+---
 
-- the borrowed amount  
-- plus the cost of the hedge that protects lenders from collateral price crashes  
+### Market Structure
 
-From the borrower’s perspective the loan behaves like a traditional fixed-term credit instrument.
+The hedge is drawn from a prediction market describing the distribution of the collateral asset’s price at the loan’s maturity.
 
-There is no liquidation threshold to monitor and no risk of forced collateral sales during the loan.
+For example, a market may represent the terminal price of ETH on 31 May, divided into a series of price buckets such as:
+
+- ETH < $1600  
+- $1600 – $1800  
+- $1800 – $2000  
+- $2000 – $2200  
+- ETH > $2200  
+
+Each bucket represents a possible range for the asset’s price when the market resolves.
+
+The lending protocol purchases positions in the buckets corresponding to price regions where the loan would become undercollateralised.
+
+These positions do not need to cover the full value of the loan. Instead they are sized to cover the potential shortfall between the outstanding loan value and the liquidation value of the collateral in each price bucket.
+
+At maturity the collateral can be liquidated at the prevailing market price. The prediction market payout then covers any remaining deficit, ensuring that lenders are repaid.
+
+A borrower taking on a higher loan-to-value ratio must hedge a larger portion of the downside price distribution, and therefore purchase more protection from the prediction market.
+
+In practice these markets can be standardized around common expiry dates, allowing many loans to share the same prediction markets while concentrating liquidity into a single terminal price distribution.
 
 ---
 
 ## What Happens if Prices Collapse?
 
-### Prediction Market Payout
+The borrower must repay the loan before the expiry of the loan term in order to recover the collateral.
 
-If the collateral price falls below the level that would normally trigger liquidation, the prediction market position pays out.
+If the borrower repays the loan before expiry, the collateral is returned and the loan position is closed. The prediction market hedge remains held by the lending side of the protocol and can either be sold back into the market or held until the market resolves.
 
-That payout covers the lender’s exposure.
+If the loan is not repaid before expiry, the protocol settles the position automatically.
 
-### Collateral Remains Locked
+At settlement the collateral is liquidated at the prevailing market price. If the collateral value is sufficient to cover the loan, the lenders are repaid and any remaining collateral value can be returned to the borrower.
 
-The collateral itself is not sold. It simply remains locked in the protocol until the loan matures.
+If the collateral value is insufficient to repay the loan, the liquidation of the collateral covers part of the debt and the prediction market position pays out an amount designed to cover the remaining shortfall.
 
-At maturity the borrower can:
+Together, the collateral liquidation and the prediction market payout ensure that lenders are repaid.
 
-- repay the loan and reclaim the collateral  
-- or walk away, allowing the protocol to retain it  
+Any surplus generated by the prediction market hedge remains with the lending side of the protocol. In effect, lenders hold the insurance that protects the loan.
 
-The lender is protected either way.
+Liquidation during the life of the loan is therefore replaced by deterministic settlement at maturity combined with market-priced insurance against collateral shortfall.
 
-In effect, collateral crash risk has been sold to the prediction market.
+The risk of a collateral price crash is transferred to participants in the prediction market.
 
 ---
 
 ## A Shift in Where Risk Lives
 
-### Risk in Traditional DeFi Lending
+In traditional DeFi lending systems the protocol itself must manage collateral risk.
 
-In traditional DeFi lending systems the protocol must manage collateral risk itself through:
+This is why lending platforms rely on a complex set of parameters and safeguards, including:
 
 - liquidation thresholds  
-- oracle feeds  
 - collateral whitelists  
-- conservative risk parameters  
+- oracle price feeds  
+- conservative risk configurations  
 
-### Risk in the Hedged Model
+These mechanisms are necessary because the protocol itself is bearing the downside risk of collateral volatility.
 
-In the hedged model the protocol does not manage that risk.
+In the hedged model this responsibility moves elsewhere.
 
-Instead, the downside exposure is sold to counterparties in prediction markets at the moment the loan is created.
+Instead of the lending system managing collateral risk internally, the downside exposure is sold to counterparties in prediction markets at the moment the loan is created.
 
 As long as a prediction market exists for the asset’s price distribution over the loan horizon, the protocol can hedge the relevant outcomes immediately.
 
-This means almost any asset with a tradable price distribution could theoretically be used as collateral.
+This means the set of assets that can theoretically be used as collateral expands significantly. Any asset with a liquid prediction market for its price distribution could potentially support lending.
 
 ---
 
 ## Oracle and Market Microstructure Risk
 
-### Operational Risk in Current Systems
+This structure also changes who bears operational risk within the system.
 
-In existing lending systems the borrower absorbs many types of market-structure risk:
+In existing lending protocols the borrower absorbs many types of market-structure risk. Events such as delayed oracle updates, flash crashes, or temporary market dislocations can trigger liquidations even if the underlying asset price later recovers.
 
-- delayed oracle updates  
-- flash crashes  
-- temporary market dislocations  
+In traditional finance these types of risks are often borne by lenders rather than borrowers.
 
-These events can trigger liquidations even if the underlying price later recovers.
+The hedged lending structure introduces a third possibility.
 
-### Risk Transfer to Prediction Markets
+Instead of placing this risk on either the borrower or the lending protocol, the exposure is sold to prediction market participants at the moment the loan is issued. If a flash crash or oracle anomaly pushes the collateral price through the liquidation threshold, the prediction market payout covers the lender’s exposure.
 
-In the hedged model those risks are transferred to the prediction market.
-
-If a flash crash or oracle anomaly pushes the collateral price through the liquidation threshold, the prediction market payout covers the lender’s exposure.
-
-The lending protocol itself remains neutral.
+The lending system itself remains neutral.
 
 ---
 
-## Why This Doesn’t Exist Yet
+## Why This Doesn't Exist Yet
 
-### The Architectural Constraint
+If the idea is straightforward, why do DeFi lending systems still rely on liquidation?
 
-The reason this type of product has not appeared in DeFi is not economic.
+The reason is architectural.
 
-It is architectural.
-
-For atomic hedging to work, the prediction market trade must execute in the same transaction that creates the loan. The system must know the exact hedge price before issuing the loan.
-
-### Centralised Execution in Prediction Markets
+For atomic hedging to work, the prediction market trade must execute in the same transaction that creates the loan. The system must know the exact cost of the hedge before issuing the loan so that it can price the credit instrument correctly.
 
 Today’s prediction markets cannot provide this guarantee.
 
-Most platforms rely on centralised trade execution, even when settlement happens on-chain. Orders are matched inside platform-controlled order books or off-chain matching engines.
+Although settlement may occur on-chain, trade execution typically happens inside centralised matching engines or platform-controlled order books. Because of this, other protocols cannot deterministically execute prediction trades as part of their own transactions.
 
-Because of this, other protocols cannot deterministically execute prediction trades as part of their own transactions.
+Without atomic execution, the hedge cannot be reliably incorporated into the loan issuance process.
 
-Without atomic execution, the hedge cannot be reliably priced at the moment the loan is issued.
+This architectural constraint prevents prediction markets from functioning as composable financial infrastructure.
 
 ---
 
-## PredictionSwap
+## Prediction Markets as Financial Infrastructure
 
-### Fully On-Chain Execution
+Prediction markets are usually viewed as standalone applications used to forecast events.
 
-PredictionSwap removes the structural inefficiencies that force prediction markets to rely on centralised execution.
+But they can also serve a broader role: pricing and transferring risk.
 
-Trading can therefore occur fully on-chain and atomically.
+In this sense prediction markets resemble a programmable form of insurance market. Rather than simply producing probabilities about future events, they allow financial systems to hedge exposure to those events directly.
 
-### Prediction Markets as Financial Infrastructure
+If prediction markets could execute trades atomically on-chain, they could be embedded directly into financial products like the lending structure described above.
 
-Once prediction markets become composable infrastructure rather than standalone platforms, they can be embedded directly into financial products.
+PredictionSwap is designed to remove the structural inefficiencies that currently force prediction markets to rely on centralised execution. By allowing prediction market trades to occur fully on-chain and atomically, prediction markets can become composable infrastructure rather than isolated platforms.
 
-Fixed-term loans without liquidation risk are one example of what becomes possible.
+Fixed-term loans without liquidation risk are one example of what becomes possible when prediction markets can be integrated directly into financial systems.
 
 ---
 
