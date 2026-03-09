@@ -4,7 +4,7 @@
 
 In DeFi today, lending protocols manage risk using over-collateralisation and liquidation mechanics. Borrowers must maintain a health factor above a threshold, and if the collateral price falls too far the position is liquidated and the collateral is sold to repay lenders.
 
-This design protects lenders, but it creates its own problems: forced selling during market stress, liquidation cascades, and loans whose terms change unpredictably as prices move.
+This design protects lenders, but creates loans whose terms change unpredictably as prices move.
 
 What follows describes a different type of lending product entirely.
 
@@ -16,11 +16,11 @@ What follows describes a different type of lending product entirely.
 
 Prediction markets can act as embedded hedging infrastructure rather than standalone betting platforms.
 
-Consider a system where financial transactions can automatically hedge the price exposure they create. Instead of issuing a position and managing its risk afterward, the exposure can be hedged at the same moment the position is created.
+Consider a system where financial transactions can automatically hedge the price exposure they create, the exposure can be hedged at the same moment the position is created.
 
 Atomic execution makes this possible. Because the transaction and the hedge occur in the same operation, the cost of the hedge can be included directly in the transaction price. The system simply executes the required prediction trades at the same time the financial position is opened.
 
-The result is that price risk can be embedded directly into the structure of financial products, rather than managed separately after the fact.
+The result is that price risk can be embedded directly into the structure of financial products, rather than managed separately.
 
 ---
 
