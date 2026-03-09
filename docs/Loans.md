@@ -8,7 +8,7 @@ Borrowers deposit collateral worth more than the value of the loan they receive.
 
 ### Over-Collateralised Borrowing
 
-Unlike traditional lending, DeFi loans typically require borrowers to post collateral worth significantly more than the amount borrowed.
+DeFi loans require borrowers to post collateral worth significantly more than the amount borrowed.
 
 This buffer exists so that if the price of the collateral falls, the protocol still has enough value locked in the system to repay lenders. The collateral therefore acts as the primary protection mechanism for the loan.
 
