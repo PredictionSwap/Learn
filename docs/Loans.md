@@ -1,12 +1,18 @@
 # Loans Without Liquidations
 
+## The DeFi Lending Lanscape
+
+### DeFi Lending Today
+
 DeFi lending today relies on liquidation.
 
 When a borrower takes out a loan, they must deposit collateral worth significantly more than the amount borrowed. If the value of that collateral falls too far, the protocol liquidates the position and sells the collateral to repay lenders.
 
 Liquidations are the mechanism that protects lenders from collateral price risk.
 
-But liquidation is not the only way to manage that risk.
+### A New Type of Lending
+
+Liquidation is not the only way to manage the risk posed in the drop in collateral prices.
 
 If the risk of a collateral price crash can be hedged at the moment a loan is issued, liquidation is no longer necessary. Instead of managing collateral risk through forced sales, the risk can be priced and transferred to a market at the moment the loan is created.
 
