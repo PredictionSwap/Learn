@@ -2,23 +2,17 @@
 
 ## The Current DeFi Lending Model
 
-In DeFi today, lending protocols such as Aave manage risk through over-collateralisation and liquidation mechanics.
-
-Borrowers deposit collateral worth more than the value of the loan they receive. Each position has a health factor, which measures how safely the collateral covers the outstanding debt. If the collateral price falls and the health factor drops below a defined threshold, the protocol allows liquidators to repay part of the loan and buy the collateral at a discount.
-
 ### Over-Collateralised Borrowing
 
 DeFi loans require borrowers to post collateral worth significantly more than the amount borrowed.
 
 This buffer exists so that if the price of the collateral falls, the protocol still has enough value locked in the system to repay lenders. The collateral therefore acts as the primary protection mechanism for the loan.
 
-
 ### System-Level Risk Management
 
 Liquidations are not the only protection mechanism used by lending protocols.
 
 Systems such as Aave also rely on a wider set of risk management tools and incentives, including:
-
 
 - conservative collateralisation ratios  
 - liquidation bonuses paid to liquidators  
