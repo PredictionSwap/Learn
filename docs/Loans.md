@@ -17,7 +17,7 @@ This buffer exists so that if the price of the collateral falls, the protocol st
 
 Liquidations are not the only protection mechanism used by lending protocols.
 
-Systems such as Aave also rely on a wider set of **risk management tools and incentives**, including:
+Systems such as Aave also rely on a wider set of risk management tools and incentives, including:
 
 
 - conservative collateralisation ratios  
@@ -31,7 +31,7 @@ Together, these mechanisms are designed to protect lenders even during volatile 
 
 ### A Loan That Changes With the Market
 
-This architecture protects lenders through a combination of **collateral buffers, liquidation incentives, and protocol reserves**.
+This architecture protects lenders through a combination of collateral buffers, liquidation incentives, and protocol reserves.
 
 But it also means that DeFi loans do not behave like traditional fixed-term credit instruments. Borrowers must actively manage their positions to avoid liquidation, and the effective terms of the loan change continuously as market prices move.
 
