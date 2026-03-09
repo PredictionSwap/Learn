@@ -84,6 +84,19 @@ In principle this means any asset with a tradable prediction market could be use
 This is a significant shift from the current model, where protocols must carefully choose collateral assets and configure conservative risk parameters. And means there is no structural risk in the amount of any one asset which is used as collateral. 
 
 ---
+### Oracle and Market Microstructure Risk Move to the Market
+
+In existing DeFi lending systems the operational risks of the system are largely borne by the borrower.
+
+Liquidations depend directly on oracle prices, which means events such as delayed oracle updates, flash crashes, or short-term market dislocations can trigger liquidations even if the underlying asset later recovers. When these events occur, the borrower absorbs the loss through forced collateral sales.
+
+In traditional lending the situation is different: lenders typically bear this type of risk. If collateral prices move unexpectedly or markets become temporarily dislocated, the lender is exposed.
+
+The hedged lending structure described above introduces a third model.
+
+Instead of placing this risk on either the borrower or the lender, the risk exposure is sold to the prediction market at the moment the loan is issued. If a flash crash, oracle anomaly, or other market disruption causes the collateral price to cross the liquidation threshold, the prediction market payout covers the lender’s exposure.
+
+---
 
 ## Why This Doesn’t Exist Yet
 
