@@ -1,6 +1,6 @@
 # Loans Without Liquidations
 
-## The DeFi Lending Lanscape
+## The DeFi Lending Landscape
 
 ### DeFi Lending Today
 
